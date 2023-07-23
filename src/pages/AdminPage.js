@@ -18,8 +18,8 @@ const AdminPage = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      console.log(token)
-      const response = await api.get('/products', {
+      console.log(token);
+      const response = await Axios.get('/products', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -35,7 +35,7 @@ const AdminPage = () => {
   const handleAddProduct = async (newProduct) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await api.post('/products', newProduct, {
+      const response = await Axios.post('/products', newProduct, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -49,7 +49,7 @@ const AdminPage = () => {
   const handleUpdateProduct = async (product) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await api.put(`/products/${product._id}`, product, {
+      const response = await Axios.put(`/products/${product._id}`, product, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -66,7 +66,7 @@ const AdminPage = () => {
   const handleDeleteProduct = async (productId) => {
     try {
       const token = localStorage.getItem('token');
-      await api.delete(`/products/${productId}`, {
+      await Axios.delete(`/products/${productId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
