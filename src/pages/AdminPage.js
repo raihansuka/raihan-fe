@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AdminProductForm from '../components/admin/ProductForm';
 import AdminProductList from '../components/admin/ProductList';
-import api from '../services/api';
 import { useNavigate } from 'react-router-dom';
 import './AdminPage.css';
 
@@ -19,7 +18,7 @@ const AdminPage = () => {
     try {
       const token = localStorage.getItem('token');
       console.log(token);
-      const response = await Axios.get('/products', {
+      const response = await Axios.get('https://gray-proud-chinchilla.cyclic.app/api/products', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -35,7 +34,7 @@ const AdminPage = () => {
   const handleAddProduct = async (newProduct) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await Axios.post('/products', newProduct, {
+      const response = await Axios.post('https://gray-proud-chinchilla.cyclic.app/api/products', newProduct, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -49,7 +48,7 @@ const AdminPage = () => {
   const handleUpdateProduct = async (product) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await Axios.put(`/products/${product._id}`, product, {
+      const response = await Axios.put(`https://gray-proud-chinchilla.cyclic.app/api/products/${product._id}`, product, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -66,7 +65,7 @@ const AdminPage = () => {
   const handleDeleteProduct = async (productId) => {
     try {
       const token = localStorage.getItem('token');
-      await Axios.delete(`/products/${productId}`, {
+      await Axios.delete(`https://gray-proud-chinchilla.cyclic.app/api/products/${productId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
