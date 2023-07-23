@@ -3,7 +3,7 @@ import AdminProductForm from '../components/admin/ProductForm';
 import AdminProductList from '../components/admin/ProductList';
 import { useNavigate } from 'react-router-dom';
 import './AdminPage.css';
-import axios from 'axios';
+import Axios from 'axios';
 
 const AdminPage = () => {
   const [products, setProducts] = useState([]);
