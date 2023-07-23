@@ -25,9 +25,10 @@ const AdminPage = () => {
         },
       });
       setProducts(response.data);
-      console.log(token);
+      
     } catch (error) {
       console.log(error);
+      console.log(token);
     } finally {
       setLoading(false);
     }
