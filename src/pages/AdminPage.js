@@ -18,7 +18,7 @@ const AdminPage = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      // console.log(token);
+      console.log(token);
       const response = await Axios.get('https://raihan-be.vercel.app/api/products', {
         headers: {
           Authorization: `Bearer ${token}`,
