@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://gray-proud-chinchilla.cyclic.app/auth';
+const API_URL = 'https://raihan-7t21kgq1x-raihansuka.vercel.app';
 
 export const register = async (username, password) => {
     try {

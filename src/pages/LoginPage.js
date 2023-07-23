@@ -16,16 +16,8 @@ const Login = () => {
 
             // Store the token and role in local storage
             localStorage.setItem('token', token);
-            localStorage.setItem('role', role);
-
             // Navigate to the appropriate page based on user role
-            if (role === 'admin') {
                 navigate('/admin');
-            } else if (role === 'user') {
-                navigate('/user');
-            } else {
-                // Handle other roles or scenarios
-            }
         } catch (error) {
             console.log(error);
         }
