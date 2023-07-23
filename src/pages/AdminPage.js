@@ -18,13 +18,14 @@ const AdminPage = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      console.log(token);
+      // console.log(token);
       const response = await Axios.get('https://gray-proud-chinchilla.cyclic.app/api/products', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       setProducts(response.data);
+      console.log(token);
     } catch (error) {
       console.log(error);
     } finally {
