@@ -9,6 +9,7 @@ const AdminPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     fetchProducts();
@@ -17,7 +18,7 @@ const AdminPage = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const token = localStorage.getItem('token');
+      
       console.log(token);
       const response = await Axios.get('https://raihan-be.vercel.app/api/products', {
         headers: {
@@ -36,7 +37,7 @@ const AdminPage = () => {
 
   const handleAddProduct = async (newProduct) => {
     try {
-      const token = localStorage.getItem('token');
+      
       const response = await Axios.post('https://raihan-be.vercel.app/api/products', newProduct, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -50,7 +51,7 @@ const AdminPage = () => {
 
   const handleUpdateProduct = async (product) => {
     try {
-      const token = localStorage.getItem('token');
+      
       const response = await Axios.put(`https://raihan-be.vercel.app/api/products/${product._id}`, product, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -67,7 +68,7 @@ const AdminPage = () => {
 
   const handleDeleteProduct = async (productId) => {
     try {
-      const token = localStorage.getItem('token');
+      
       await Axios.delete(`https://raihan-be.vercel.app/api/products/${productId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
