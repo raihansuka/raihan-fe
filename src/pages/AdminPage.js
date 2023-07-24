@@ -9,7 +9,6 @@ const AdminPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const token = localStorage.getItem('token');
   console.log('token',token)
 
   useEffect(() => {
@@ -19,16 +18,15 @@ const AdminPage = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get('https://raihan-be.vercel.app/api/products', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const token = localStorage.getItem('token');
+  
+      // Set the token as a cookie in the request headers
+      Axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  
+      const response = await Axios.get('https://raihan-be.vercel.app/api/products');
       setProducts(response.data);
-      
     } catch (error) {
       console.log(error);
-      console.log(token);
     } finally {
       setLoading(false);
     }
