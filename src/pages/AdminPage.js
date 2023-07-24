@@ -10,6 +10,7 @@ const AdminPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
+  console.log('token',token)
 
   useEffect(() => {
     fetchProducts();
@@ -18,8 +19,6 @@ const AdminPage = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      
-      console.log(token);
       const response = await Axios.get('https://raihan-be.vercel.app/api/products', {
         headers: {
           Authorization: `Bearer ${token}`,
