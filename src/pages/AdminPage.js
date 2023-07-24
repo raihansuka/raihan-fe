@@ -9,6 +9,7 @@ const AdminPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
   console.log('token',token)
 
   useEffect(() => {
